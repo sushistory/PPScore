@@ -1,0 +1,27 @@
+
+
+  <form (ngSubmit)="onSubmit()" #gameForm="ngForm">
+
+    <div class="form-group">
+
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]= "game.name" name="name" required>
+
+    </div>
+
+    <div class="form-group">
+      
+      <label for="platform">Platform</label>
+      <select class="form-control" id="platform" [(ngModel)]= "game.platform" name="platform">
+        
+        <option *ngFor="let platform of platforms" [selected]="game.platform" [value]="platform">{{platform}}</option>
+
+      </select>
+      
+    </div>
+
+    <button type="submit" [disabled]="!gameForm.form.valid" class="btn btn-success">CREATE GAME</button>
+
+
+
+  </form>
