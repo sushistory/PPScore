@@ -17,6 +17,7 @@ import 'rxjs/add/operator/catch' ;
 export class GameListComponent implements OnInit {
 
   games ;
+  scores ;
 
   constructor(private http:Http) { }
 
@@ -26,7 +27,21 @@ export class GameListComponent implements OnInit {
 
   }
 
+  onClickGame(game : PPGame){
 
+    //alert('game clicked '+game.id) ;
+
+    const body = {"idGame" : game.id} 
+    
+      let headers = new Headers({ 'Content-Type': 'application/json',  'charset':'utf-8'});
+      let options = new RequestOptions({ headers: headers });
+      
+      let bodyString = JSON.stringify(body);
+      this.http.post('http://localhost:8080/PPScore/score/get', bodyString, options)
+      .map(res => res.json())
+      .subscribe(scores => this.scores = scores);
+
+  }
 
   getAllItems(){
 

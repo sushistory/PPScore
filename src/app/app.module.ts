@@ -12,6 +12,11 @@ import { GameListComponent } from './game-list/game-list.component';
 import { GameLeaderboardComponent } from './game-leaderboard/game-leaderboard.component';
 
 
+//material
+//import { MatButtonModule } from '@angular/material' ;
+import 'hammerjs' ;
+import { MaterialModule } from './material/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,

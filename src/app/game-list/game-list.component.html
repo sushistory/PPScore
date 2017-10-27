@@ -1,5 +1,23 @@
 <div *ngFor="let game of games">
   
-  {{game.name}} ({{game.platform}})
+  <p role="button" (click)="onClickGame(game)">{{game.name}} ({{game.platform}})</p>
+
+</div>
+
+<div>
+
+<hr>
+<hr>
+
+  <h2>TheScores :</h2> 
+
+  <div *ngFor="let score of scores">
+      
+      <p>{{score.playerName}} ({{score.score}})</p>
+    
+    </div>
+
+    <hr>
+    <hr>
 
 </div>
